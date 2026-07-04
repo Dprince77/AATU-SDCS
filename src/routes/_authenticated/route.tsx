@@ -31,11 +31,9 @@ import {
   LogOut,
   ShieldCheck,
   LifeBuoy,
-  Sun,
-  Moon,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth";
-import { useTheme } from "@/lib/theme";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import logoAsset from "@/assets/aatu-logo.webp.asset.json";
@@ -44,21 +42,6 @@ export const Route = createFileRoute("/_authenticated")({
   ssr: false,
   component: AuthLayout,
 });
-
-function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
-  return (
-    <Button
-      size="icon"
-      variant="ghost"
-      className="ml-auto"
-      onClick={toggleTheme}
-      title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-    >
-      {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
-    </Button>
-  );
-}
 
 function AuthLayout() {
   // ALL hooks must be at the top — before any conditional returns
@@ -176,7 +159,7 @@ function AuthLayout() {
               </span>
               <span className="text-muted-foreground"> · Student Disciplinary Committee</span>
             </div>
-            <ThemeToggle />
+            <ThemeToggle className="ml-auto" />
           </header>
           <main className="flex-1 overflow-auto">
             <Outlet />

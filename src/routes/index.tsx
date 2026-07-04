@@ -2,6 +2,7 @@ import { createFileRoute, Link, Navigate } from "@tanstack/react-router";
 import { ShieldCheck, FileText, Gavel } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth";
+import { ThemeToggle } from "@/components/theme-toggle";
 import logoAsset from "@/assets/aatu-logo.webp.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -10,9 +11,17 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "AATU Disciplinary Committee — Case Management" },
-      { name: "description", content: "Modern case management for AATU student discipline: intake incidents, manage evidence, schedule hearings, and record sanctions in one auditable workspace." },
+      {
+        name: "description",
+        content:
+          "Modern case management for AATU student discipline: intake incidents, manage evidence, schedule hearings, and record sanctions in one auditable workspace.",
+      },
       { property: "og:title", content: "AATU Disciplinary Committee — Case Management" },
-      { property: "og:description", content: "Modern case management for AATU student discipline: intake incidents, manage evidence, schedule hearings, and record sanctions in one auditable workspace." },
+      {
+        property: "og:description",
+        content:
+          "Modern case management for AATU student discipline: intake incidents, manage evidence, schedule hearings, and record sanctions in one auditable workspace.",
+      },
       { property: "og:url", content: `${process.env.PUBLIC_APP_URL ?? ""}/` },
     ],
     links: [{ rel: "canonical", href: `${process.env.PUBLIC_APP_URL ?? ""}/` }],
@@ -30,14 +39,27 @@ function Landing() {
         <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4 gap-4">
           <Link to="/" className="flex items-center gap-4">
             <div className="aatu-crest-ring">
-              <img src={logoAsset.url} alt="AATU Logo" className="h-16 w-16 rounded-full bg-card object-contain p-1" />
+              <img
+                src={logoAsset.url}
+                alt="AATU Logo"
+                className="h-16 w-16 rounded-full bg-card object-contain p-1"
+              />
             </div>
             <div className="leading-tight">
-              <p className="font-display font-bold text-lg md:text-xl text-primary">Abiola Ajimobi Technical University</p>
-              <p className="text-xs md:text-sm text-muted-foreground">Student Disciplinary Case Management</p>
+              <p className="font-display font-bold text-lg md:text-xl text-primary">
+                Abiola Ajimobi Technical University
+              </p>
+              <p className="text-xs md:text-sm text-muted-foreground">
+                Student Disciplinary Case Management
+              </p>
             </div>
           </Link>
-          <Button asChild variant="outline"><Link to="/auth">Sign in</Link></Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Button asChild variant="outline">
+              <Link to="/auth">Sign in</Link>
+            </Button>
+          </div>
         </div>
       </header>
       <main>
@@ -50,20 +72,40 @@ function Landing() {
               Modern case management for student discipline.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-              Intake incidents, manage evidence, schedule hearings, record sanctions, and track student history — all in one transparent, auditable workspace built for AATU.
+              Intake incidents, manage evidence, schedule hearings, record sanctions, and track
+              student history — all in one transparent, auditable workspace built for AATU.
             </p>
             <div className="mt-8 flex gap-3">
-              <Button asChild size="lg"><Link to="/auth">Get started</Link></Button>
-              <Button asChild size="lg" variant="outline"><Link to="/auth">Staff sign in</Link></Button>
+              <Button asChild size="lg">
+                <Link to="/auth">Get started</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link to="/auth">Staff sign in</Link>
+              </Button>
             </div>
           </div>
           <div className="mt-20 grid md:grid-cols-3 gap-6">
             {[
-              { icon: FileText, title: "Case Intake", desc: "Faculty, lecturers, HODs and Deans file structured incident reports with auto-generated case numbers." },
-              { icon: Gavel, title: "Hearings & Decisions", desc: "Schedule hearings, record outcomes, and issue sanctions with full audit history." },
-              { icon: ShieldCheck, title: "Role-Based Access", desc: "Strict permissions for Admin, DSA, Dean, HOD, Lecturers, Disciplinary Committee, and students." },
+              {
+                icon: FileText,
+                title: "Case Intake",
+                desc: "Faculty, lecturers, HODs and Deans file structured incident reports with auto-generated case numbers.",
+              },
+              {
+                icon: Gavel,
+                title: "Hearings & Decisions",
+                desc: "Schedule hearings, record outcomes, and issue sanctions with full audit history.",
+              },
+              {
+                icon: ShieldCheck,
+                title: "Role-Based Access",
+                desc: "Strict permissions for Admin, DSA, Dean, HOD, Lecturers, Disciplinary Committee, and students.",
+              },
             ].map((f) => (
-              <div key={f.title} className="rounded-lg border bg-card/80 backdrop-blur p-6 shadow-sm">
+              <div
+                key={f.title}
+                className="rounded-lg border bg-card/80 backdrop-blur p-6 shadow-sm"
+              >
                 <div className="size-10 rounded-md bg-primary text-primary-foreground grid place-items-center mb-4">
                   <f.icon className="size-5" />
                 </div>

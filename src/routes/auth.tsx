@@ -11,6 +11,7 @@ import logoAsset from "@/assets/aatu-logo.webp.asset.json";
 import { MATRIC_HELP, formatMatricInput, isValidMatric } from "@/lib/matric";
 import { resolveLoginIdentifier } from "@/lib/auth-lookup.functions";
 import { FACULTIES } from "@/lib/faculty";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const PASSWORD_HELP =
   "At least 8 characters with 1 uppercase letter, 1 number, and 1 special character.";
@@ -54,7 +55,8 @@ function AuthPage() {
   }, [user, loading, navigate]);
 
   return (
-    <div className="min-h-screen grid lg:grid-cols-2">
+    <div className="min-h-screen grid lg:grid-cols-2 relative">
+      <ThemeToggle className="absolute top-4 right-4 z-10" />
       <div className="hidden lg:flex flex-col p-10 bg-sidebar text-sidebar-foreground relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-20"
