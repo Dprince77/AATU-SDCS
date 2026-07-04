@@ -1334,10 +1334,18 @@ function EditCaseDialog({ open, onOpenChange, caseRow, onSaved, log }: any) {
             {reporteeIsStudent && (
               <div className="space-y-2">
                 <Label>Level</Label>
-                <Input
-                  value={form.student_level}
-                  onChange={(e) => upd("student_level", e.target.value)}
-                />
+                <Select value={form.student_level} onValueChange={(v) => upd("student_level", v)}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select level" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {["100L", "200L", "300L", "400L", "500L"].map((lvl) => (
+                      <SelectItem key={lvl} value={lvl}>
+                        {lvl}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
             )}
             <div className="space-y-2 sm:col-span-2">

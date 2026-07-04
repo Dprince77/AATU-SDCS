@@ -162,16 +162,16 @@ function NewCase() {
           <CardContent className="grid sm:grid-cols-2 gap-4">
             {isSelfReport && (
               <div className="space-y-2 sm:col-span-2">
-                <Label>Reporteee *</Label>
+                <Label>They are a *</Label>
                 <Select value={form.reportee_type} onValueChange={(v) => upd("reportee_type", v)}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="student">Student</SelectItem>
-                    <SelectItem value="staff">Teaching Staff</SelectItem>
+                    <SelectItem value="staff">Staff / Lecturer</SelectItem>
                     <SelectItem value="non_staff">
-                      Non-teaching staff
+                      Non-teaching staff (security, cleaner, porter, etc.)
                     </SelectItem>
                   </SelectContent>
                 </Select>
@@ -202,11 +202,18 @@ function NewCase() {
                 </div>
                 <div className="space-y-2">
                   <Label>Level</Label>
-                  <Input
-                    placeholder="e.g. 200L"
-                    value={form.student_level}
-                    onChange={(e) => upd("student_level", e.target.value)}
-                  />
+                  <Select value={form.student_level} onValueChange={(v) => upd("student_level", v)}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select level" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {["100L", "200L", "300L", "400L", "500L"].map((lvl) => (
+                        <SelectItem key={lvl} value={lvl}>
+                          {lvl}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div className="space-y-2 sm:col-span-2">
                   <Label>Department</Label>

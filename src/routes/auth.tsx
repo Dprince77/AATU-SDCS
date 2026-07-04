@@ -466,8 +466,21 @@ function SignUpForm() {
               />
             </div>
             <div className="space-y-2">
-              <Label>Level</Label>
-              <Input required placeholder="e.g. 300L" value={form.level} onChange={upd("level")} />
+              <Label htmlFor="signup-level">Level</Label>
+              <select
+                id="signup-level"
+                required
+                className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                value={form.level}
+                onChange={(e) => setForm((f) => ({ ...f, level: e.target.value }))}
+              >
+                <option value="">Select level</option>
+                {["100L", "200L", "300L", "400L", "500L"].map((lvl) => (
+                  <option key={lvl} value={lvl}>
+                    {lvl}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
         </>
