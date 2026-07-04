@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import { nitro } from "nitro/vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig(({ mode }) => {
@@ -22,6 +23,7 @@ export default defineConfig(({ mode }) => {
           client: { files: ["**/server/**"], specifiers: ["server-only"] },
         },
       }),
+      nitro(),
       react(),
     ],
     define: {
