@@ -32,8 +32,6 @@ export default defineConfig(({ mode }) => {
       "process.env.SUPABASE_URL": JSON.stringify(env.SUPABASE_URL),
       "process.env.SUPABASE_PUBLISHABLE_KEY": JSON.stringify(env.SUPABASE_PUBLISHABLE_KEY),
       "process.env.PUBLIC_APP_URL": JSON.stringify(env.PUBLIC_APP_URL),
-      "process.env.LOVABLE_API_KEY": JSON.stringify(env.LOVABLE_API_KEY),
-      "process.env.GOOGLE_MAIL_API_KEY": JSON.stringify(env.GOOGLE_MAIL_API_KEY),
     },
   };
 });
