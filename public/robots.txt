@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://disciplinary-committee.lovable.app/sitemap.xml

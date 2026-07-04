@@ -1,0 +1,8 @@
+# AATU Disciplinary Committee
+
+> Case management workspace for the Abiola Ajimobi Technical University Student Disciplinary Committee — intake incidents, manage evidence, schedule hearings, and record sanctions.
+
+## Pages
+
+- [Home](/): Overview of the AATU Student Disciplinary case management platform.
+- [Sign in](/auth): Sign in or create an account.
